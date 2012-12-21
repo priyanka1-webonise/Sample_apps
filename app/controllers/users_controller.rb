@@ -3,6 +3,22 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def new
+
+   def new
+    @user = User.new
   end
+  
+   def create
+     @user = User.new(params[:user])
+      # Handle a successful save.
+     if @user.save
+       flash[:success] = "Welcome to the Sample App!"
+       redirect_to @user
+
+     
+    else
+      render 'new'
+    end
+  end
+
 end
