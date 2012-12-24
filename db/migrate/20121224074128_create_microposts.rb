@@ -1,4 +1,7 @@
 class CreateMicroposts < ActiveRecord::Migration
+
+
+
   def change
     create_table :microposts do |t|
       t.string :content
@@ -8,4 +11,5 @@ class CreateMicroposts < ActiveRecord::Migration
     end
     add_index :microposts, [:user_id, :created_at]
   end
+
 end
